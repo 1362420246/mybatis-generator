@@ -5,28 +5,28 @@
 <generatorConfiguration>
 
     <!-- mysql-->
-    <!--<classPathEntry location="D:/maven-repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>-->
+    <classPathEntry location="D:/maven-repository/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>
 
     <!-- oracle-->
-    <classPathEntry location="D:/maven-repository/com/oracle/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar"/>
+    <!--<classPathEntry location="D:/maven-repository/com/oracle/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar"/>-->
 
     <context id="sql" targetRuntime="MyBatis3">
         <commentGenerator type="com.ljt.generator.MyCommentGenerator">
         </commentGenerator>
 
         <!-- mysql-->
-      <!--  <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/remoteservice?useUnicode=true&amp;characterEncoding=utf8"
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.16.20.133:3306/electrocar_ga_test01?useUnicode=true&amp;characterEncoding=utf8"
                         userId="root"
                         password="123456">
-        </jdbcConnection>-->
+        </jdbcConnection>
 
         <!-- oracle-->
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+       <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
                         connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
                         userId="scott"
                         password="scott">
-        </jdbcConnection>
+        </jdbcConnection>-->
 
 
         <javaTypeResolver>
@@ -34,31 +34,35 @@
         </javaTypeResolver>
 
         <!-- entity -->
-        <javaModelGenerator targetPackage="com.visionvera.entity" targetProject="C:/Users/13624/Desktop/javabean/">
+        <javaModelGenerator targetPackage="com.telecomyt.electrocar.entity" targetProject="C:/Users/qbk/Desktop/javabean/">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- xml-->
-        <sqlMapGenerator targetPackage="mappers" targetProject="C:/Users/13624/Desktop/javabean/">
+        <sqlMapGenerator targetPackage="mappers" targetProject="C:/Users/qbk/Desktop/javabean/">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- mapper-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.visionvera.mapper"
-                             targetProject="C:/Users/13624/Desktop/javabean/">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.telecomyt.electrocar.web.mapper"
+                             targetProject="C:/Users/qbk/Desktop/javabean/">
             <property name="enableSubPackages" value="false"/>
             <property name="implementationPackage" value="true"/>
         </javaClientGenerator>
 
         <!-- 映射-->
-        <table tableName="T_USER" domainObjectName="User" enableCountByExample="false"
+        <table tableName="tb_alarm" domainObjectName="Alarm" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
-
             <!-- 如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法，比如BORN_DATE，生成的属性名字就是BORN_DATE,而不会是bornDate -->
             <property name="useActualColumnNames" value="false" />
-
         </table>
+        <!-- 映射-->
+        <table tableName="tb_alarm_statistic" domainObjectName="AlarmStatistic" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
     </context>
 </generatorConfiguration>
